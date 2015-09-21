@@ -1,6 +1,20 @@
-<% @creatures.each do |creature| %>
-<div>
-	Name: <%= creature.name %> <br>
-	Description: <%= creature.description %>
+<div class="container">
+	<ul class="list-group">
+		<% @creatures.each do |creature| %>
+		<li class="list-group-item">
+			Name: <%= creature.name %> <br>
+			Description: <%= creature.description %><br>
+			<hr  color='#9DFAA5' class="button-buffer">
+			<%= link_to "Show", "/creatures/#{creature.id}", class: "btn btn-info btn-xs" %>
+		</li>
+		<% end %>
+	</ul>
+
+	<div>
+		<%= link_to "New Creature", "/creatures/new", class: "btn btn-success" %>
+	</div>
+	<br>
+	<div class="panel panel-default">
+		<div class="panel-body"></div>
+	</div>
 </div>
-<% end %>

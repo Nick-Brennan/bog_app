@@ -1,7 +1,7 @@
 class CreaturesController < ApplicationController
 	
 	def index
-		@creatures = Creature.all
+		@creatures = Creature.all.order(:name)
 		render :index
 	end
 
@@ -32,7 +32,14 @@ class CreaturesController < ApplicationController
 		creature = Creature.find(creature_id)
 		updated_attributes = params.require(:creature).permit(:name, :description)
 		creature.update_attributes(updated_attributes)
-		redirect_to('/creatures/#{creature_id}')
+		redirect_to "/creatures/#{creature.id}" 
+	end
+
+	def destroy
+		creature_id = params[:id]
+		creature = Creature.find(creature_id)
+		creature.destroy
+		redirect_to "/creatures"
 	end
 
 end

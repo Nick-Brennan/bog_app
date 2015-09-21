@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/creatures/:id/edit', to: 'creatures#edit', as: 'edit_creature'
   post '/creatures' => 'creatures#create'
   patch '/creatures/:id' => 'creatures#update'
+  delete '/creatures/:id' => 'creatures#destroy'
 end
